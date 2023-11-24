@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/main.css">
+    <title>Summarization Application</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- TITLE OF THE WEB PAGE -->
+          <h1 class="logo">Make It <span>SHORT</span></h1>
+        </div>
+    </header>
+    <!-- CUSTOMIZATION FOR THE INPUT TEXT BOX -->
+    <div class = 'body'>
+    <div class ='parent'>
+    <div class ='child'>
+    <h3 id = "input" class="logo">Input Text</h3>
+    <!-- Specify the get_summary method to process the submitted data in the form-->
+    <form action = "{{url_for('get_summary')}}" method="post" id = "form1">
+        <!-- Name in textarea is important - BECAUSE IT CONNECTS THE FRONT END AND BACK END -->
+        <textarea name = "input_text" cols="50" rows="25" placeholder="Text" style="background-color:black;color:#fff ;" aria-required="required"></textarea>
+        <!-- Add buttons for submitting the input and clearing the text box -->
+        <button id ="btn1" type="submit">Submit</button>
+        <button id ="btn2" type="reset">Clear</button>
+    </form>
+    <form action="{{ url_for('redirect_home') }}" method="post">
+        <input id = "reset" type="submit" value="RESET">
+    </form>
+    </div>
+    <!-- CUSTOMIZATION FOR THE OUTPUT TEXT BOX -->
+    <div class='child'>
+    <h3 id = "output" class="logo">Summarized Text</h3>
+    <!-- Name in textarea is important - BECAUSE IT CONNECTS THE FRONT END AND BACK END -->
+    <textarea name="result" style="background-color:black; color:#fff;" cols="50" rows="25" id ="area">{{result}}</textarea>
+    </div>
+    </div>
+    </div>
+
+</body>
+</html>
